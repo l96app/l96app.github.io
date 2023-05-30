@@ -66,6 +66,34 @@
           </div>
         </div>
       </div>
+      <div class="accordion-item" id="battleSim2Interface">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseCombo" aria-expanded="false" aria-controls="collapseThree">
+            Combo Tool
+          </button>
+        </h2>
+        <div id="collapseCombo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="container">
+              <h1>Combo Table</h1>
+              <div class="row">
+                <div class="col-3">
+                  <div class="container">
+                    <div id="gridHero" class="grid-container">
+                      <!-- Grid items will be inserted here by JavaScript -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div id="comboContainer" class="row">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="accordion-item" id="battleSimInterface">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -251,12 +279,64 @@
           </div>
         </div>
       </div>
+      <div class="accordion-item" id="battleSim2Interface">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+            Battle Simulator (Old Version)
+          </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <h2>Battle Log</h2>
+            <p id="battlelog2"></p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item" id="SpecialtyInterface">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseSpec" aria-expanded="false" aria-controls="collapseThree">
+            Specialty Tool
+          </button>
+        </h2>
+        <div id="collapseSpec" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <form><b>Your Points</b>
+              <input class="selectable" type="number" id="playerPoints" min="1" max="999" value="50">
+              <input class="selectable" type="button" id="playerPointsButton" value="Update"
+                onclick="updatePlayerPoints()">&nbsp;&nbsp;&nbsp;
+              <input class="selectable" type="button" id="showBenefits" value="Summary"
+                onclick="window.location.href = '#afterSummaries'">
+            </form>
+            <svg id="resource" width="100%" height=700></svg>
+            <svg id="combat" width="100%" ></svg>
+            <svg id="construction" width="100%" ></svg>
+            <div id="code"></div>
+            <div id="svgChart"></div>
+            <div class="a" id="summaries">
+              <h1>A Benefit Summary will appear here once you allocate points in one or more trees</h1>
+            </div>
+            <p id="afterSummaries"> </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
 
   <script src="assets/bohmap.js"></script>
   <script src="assets/battlesimroe.js"></script>
+  <script src="assets/battlesimroe2.js"></script>
+  <script src="assets/combotool.js"></script>
+  <script src="assets/roeSpec01.js"></script>
+  <script src="assets/roeSpec02.js"></script>
+  <script src="assets/roeSpec03.js"></script>
+  <script src="assets/roeSpec04.js"></script>
+  <script src="assets/roeSpec05.js"></script>
+  <script src="assets/roeSpec06.js"></script>
+  <script src="assets/roeSpec07.js"></script>
 </body>
 
 </html>
