@@ -39,8 +39,8 @@ function battle2(a, b) {
         rStatsA[5] -= killsB;
         totalKillsB += killsB;
     }
-    document.getElementById('battleconsole2').innerHTML += 'Player 1 kills: ' + totalKillsA + '<br>';
-    document.getElementById('battleconsole2').innerHTML += 'Player 2 kills: ' + totalKillsB + '<br>';
+    document.getElementById('battlelog2').innerHTML += 'Player 1 kills: ' + totalKillsA + '<br>';
+    document.getElementById('battlelog2').innerHTML += 'Player 2 kills: ' + totalKillsB + '<br>';
 }
 
 battle2(playerC, playerC)

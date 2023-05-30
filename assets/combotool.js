@@ -1,19 +1,39 @@
 // return the data from the url https://legiongen.com/api/all/heros and display the images in the gridHero div
-fetch('http://legiongen.com/api/all/heros')
+fetch('https://api.allorigins.win/raw?url=http://legiongen.com/api/all/heros')
 .then(response => response.json())
 .then(data => {
   const grid = document.getElementById('gridHero');
   for (const hero of data.heros) {
     const item = document.createElement('div');
-    item.className = 'grid-item';
+    item.className = 'col-3';
     const img = document.createElement('img');
     img.src = 'http://legiongen.com/' + hero.roe_image;
     img.alt = hero.roe_name;
+    // make image responsive
+    img.className = 'img-fluid';
     item.appendChild(img);
     grid.appendChild(item);
   }
 })
 .catch(error => console.error(error));
+// add event when click you return the id of all heroes, but removing the selected
+document.getElementById('gridHero').addEventListener('click', function(e) {
+  if (e.target.tagName === 'IMG') {
+    const heroId = e.target.src.split('/').pop().split('.')[0];
+    const grid = document.getElementById('gridHero');
+    const selected = document.getElementById('selectedHero');
+    const item = document.createElement('div');
+    item.className = 'col-3';
+    const img = document.createElement('img');
+    img.src = e.target.src;
+    img.alt = e.target.alt;
+    // make image responsive
+    img.className = 'img-fluid';
+    item.appendChild(img);
+    selected.appendChild(item);
+    grid.removeChild(e.target.parentNode);
+  }
+});
 
 
 fetch('https://legiongen.com/public/api/combos/all')
