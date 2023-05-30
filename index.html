@@ -3,56 +3,260 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Boh - Map Strategy tools</title>
+  <title>L96 Labs - Tool Development and Testing</title>
   <link rel="stylesheet" href="assets/bootstrap.min.css">
   <script src="assets/d3.v5.min.js"></script>
+  <script src="assets/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
 
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Boh - Map Strategy tools</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div id="navbarNavAltMarkup" class="navbar-collapse collapse show">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Boh Map Interface</a>
+    <h1>L96.APP Labs - Tool Development and Testing</h1>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item" id="homeInterface">
+        <h2 class="accordion-header">
+          <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Home
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
         </div>
       </div>
-    </nav>
-    <div id="homeInterface" class="container"></div>
-    <div id="bohMapInterface" class="container">
-      <div class="row">
-        <div class="conteiner col-lg-8 col-md-12">
-          <div id="map" class="svg-container"></div>
-        </div>
-        <div class="conteiner col-lg-4 col-md-12">
-          <div class="row">
-            <button class="btn btn-outline-primary col" onclick="updateBlue()">Blue Exemple</button>
-            <button class="btn btn-outline-danger col" onclick="updateRed()">Red Exemple</button>
-            <button class="btn btn-outline-dark col" onclick="updateClear()">Reset</button>
+      <div class="accordion-item" id="bohMapInterface">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Battlefields of Honor Map Tool
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="container">
+              <div class="row">
+                <div class="conteiner col-lg-8 col-md-12">
+                  <div id="map" class="svg-container"></div>
+                </div>
+                <div class="conteiner col-lg-4 col-md-12">
+                  <div class="btn-group">
+                    <button class="btn btn-outline-primary" onclick="updateBlue()">Blue Exemple</button>
+                    <button class="btn btn-outline-danger" onclick="updateRed()">Red Exemple</button>
+                    <button class="btn btn-outline-dark" onclick="updateClear()">Reset</button>
+                  </div>
+                  <p>Castles [x : y : id : tips/instruction]:</p>
+                  <textarea class="form-control" id="castlesAvailables" rows="3"></textarea>
+                  <p>Sentry towers [x : y : id]:</p>
+                  <textarea class="form-control" id="stPath" rows="3"></textarea>
+                  <p>Advanced Msg [x : y : width : height : color : title : tag : information]:</p>
+                  <textarea class="form-control" id="mapZones" rows="3"></textarea>
+                  <button class="btn btn-primary col-9 offset-1" onclick="copyLink()">Copy Link</button>
+                  <p>Link (Not working, learning how to make work):</p>
+                  <textarea class="form-control" id="link" rows="3"></textarea>
+                </div>
+              </div>`
+            </div>
           </div>
-          <p>Castles [x : y : id : tips/instruction]:</p>
-          <textarea class="form-control" id="castlesAvailables" rows="3"></textarea>
-          <p>Sentry towers [x : y : id]:</p>
-          <textarea class="form-control" id="stPath" rows="3"></textarea>
-          <p>Advanced Msg [x : y : width : height : color : title : tag : information):</p>
-          <textarea class="form-control" id="mapZones" rows="3"></textarea>
-          <button class="btn btn-primary col-9 offset-1" onclick="copyLink()">Copy Link</button>
-
-          <p>Link (Not working, learning how to make work):</p>
-          <textarea class="form-control" id="link" rows="3"></textarea>
         </div>
-      </div>`
+      </div>
+      <div class="accordion-item" id="battleSimInterface">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Battle Simulator
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <div class="row">
+                    <span class="h5 col-5">Stats</span>
+                    <span class="h5 col-3">Player A</span>
+                    <span class="h5 col-3">Player B</span>
+                  </div>
+                  <div class="row">
+                    <input type="button" value="Start Battle" onclick="battle()"
+                      class="btn btn-primary col-4 offset-4 mb-3">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Player Name</span>
+                    </div>
+                    <input type="text" name="playerNameA" id="playerNameA" placeholder="Player Name A"
+                      class="form-control col-2" value="Player 1">
+                    <input type="text" name="playerNameB" id="playerNameB" placeholder="Player Name B"
+                      class="form-control col-2" value="Player 2">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Troop Amount</span>
+                    </div>
+                    <input type="number" name="troopAmountA" id="troopAmountA" placeholder="Troop Amount A"
+                      class="form-control col-2" value=27500>
+                    <input type="number" name="troopAmountB" id="troopAmountB" placeholder="Troop Amount B"
+                      class="form-control col-2" value=27500>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Bonus Might</span>
+                    </div>
+                    <input type="number" name="bonusMightA" id="bonusMightA" placeholder="Bonus Might A"
+                      class="form-control col-2" value=440.07>
+                    <input type="number" name="bonusMightB" id="bonusMightB" placeholder="Bonus Might B"
+                      class="form-control col-2" value=450.37>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Bonus Res</span>
+                    </div>
+                    <input type="number" name="bonusResA" id="bonusResA" placeholder="Bonus Res A"
+                      class="form-control col-2" value=420.23>
+                    <input type="number" name="bonusResB" id="bonusResB" placeholder="Bonus Res B"
+                      class="form-control col-2" value=408.32>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Bonus TatMight</span>
+                    </div>
+                    <input type="number" name="bonusTatMightA" id="bonusTatMightA" placeholder="Bonus TatMight A"
+                      class="form-control col-2" value=134.5>
+                    <input type="number" name="bonusTatMightB" id="bonusTatMightB" placeholder="Bonus TatMight B"
+                      class="form-control col-2" value=135.5>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Bonus TatRes</span>
+                    </div>
+                    <input type="number" name="bonusTatResA" id="bonusTatResA" placeholder="Bonus TatRes A"
+                      class="form-control col-2" value=132>
+                    <input type="number" name="bonusTatResB" id="bonusTatResB" placeholder="Bonus TatRes B"
+                      class="form-control col-2" value=127.5>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Bonus Hp</span>
+                    </div>
+                    <input type="number" name="bonusHpA" id="bonusHpA" placeholder="Bonus Hp A"
+                      class="form-control col-2" value=210.89>
+                    <input type="number" name="bonusHpB" id="bonusHpB" placeholder="Bonus Hp B"
+                      class="form-control col-2" value=211.39>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Combat Speed</span>
+                    </div>
+                    <input type="number" name="combatSpeedA" id="combatSpeedA" placeholder="Combat Speed A"
+                      class="form-control col-2" value=419>
+                    <input type="number" name="combatSpeedB" id="combatSpeedB" placeholder="Combat Speed B"
+                      class="form-control col-2" value=419>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Bonus Dmg</span>
+                    </div>
+                    <input type="number" name="bonusDmgA" id="bonusDmgA" placeholder="Bonus Dmg A"
+                      class="form-control col-2" value=20.79>
+                    <input type="number" name="bonusDmgB" id="bonusDmgB" placeholder="Bonus Dmg B"
+                      class="form-control col-2" value=21.79>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Bonus DmgReduction</span>
+                    </div>
+                    <input type="number" name="bonusDmgReductionA" id="bonusDmgReductionA"
+                      placeholder="Bonus DmgReduction A" class="form-control col-2" value=0>
+                    <input type="number" name="bonusDmgReductionB" id="bonusDmgReductionB"
+                      placeholder="Bonus DmgReduction B" class="form-control col-2" value=0>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                      <span class="input-group-text">Troop Type</span>
+                    </div>
+                    <input type="number" name="troopTypeA" id="troopTypeA" placeholder="Troop Type A"
+                      class="form-control col-2" value=1>
+                    <input type="number" name="troopTypeB" id="troopTypeB" placeholder="Troop Type B"
+                      class="form-control col-2" value=1>
+                  </div>
+                  <div class="container hidden">
+                    <div class="input-group">
+                      <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Troop Might</span>
+                      </div>
+                      <input type="number" name="troopMightA" id="troopMightA" placeholder="Troop Might A"
+                        class="form-control col-2" value=87>
+                      <input type="number" name="troopMightB" id="troopMightB" placeholder="Troop Might B"
+                        class="form-control col-2" value=87>
+                    </div>
+                    <div class="input-group">
+                      <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Troop Res</span>
+                      </div>
+                      <input type="number" name="troopResA" id="troopResA" placeholder="Troop Res A"
+                        class="form-control col-2" value=49>
+                      <input type="number" name="troopResB" id="troopResB" placeholder="Troop Res B"
+                        class="form-control col-2" value=49>
+                    </div>
+                    <div class="input-group">
+                      <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Troop Health</span>
+                      </div>
+                      <input type="number" name="troopHealthA" id="troopHealthA" placeholder="Troop Health A"
+                        class="form-control col-2" value=16>
+                      <input type="number" name="troopHealthB" id="troopHealthB" placeholder="Troop Health B"
+                        class="form-control col-2" value=16>
+                    </div>
+                    <div class="input-group">
+                      <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Troop Power</span>
+                      </div>
+                      <input type="number" name="troopPowerA" id="troopPowerA" placeholder="Troop Power A"
+                        class="form-control col-2" value=7>
+                      <input type="number" name="troopPowerB" id="troopPowerB" placeholder="Troop Power B"
+                        class="form-control col-2" value=7>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <h2>Battle Log</h2>
+                  <p id="battlelog"></p>
+                </div>
+                <div class="col">
+                  <h2>Battle Log 2</h2>
+                  <div class="container">
+                    <div id="results" class="row">
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <h4>Player A</h4>
+                        <p id="playerStatA"></p>
+                      </div>
+                      <div class="col">
+                        <h4>Player B</h4>
+                        <p id="playerStatB"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
 
   <script src="assets/bohmap.js"></script>
+  <script src="assets/battlesimroe.js"></script>
 </body>
 
 </html>
