@@ -5,7 +5,7 @@ fetch('https://api.allorigins.win/raw?url=http://legiongen.com/api/all/heros')
   const grid = document.getElementById('gridHero');
   for (const hero of data.heros) {
     const item = document.createElement('div');
-    item.className = 'col-3';
+    item.className = 'col-1';
     const img = document.createElement('img');
     img.src = 'http://legiongen.com/' + hero.roe_image;
     img.alt = hero.roe_name;
@@ -23,7 +23,7 @@ document.getElementById('gridHero').addEventListener('click', function(e) {
     const grid = document.getElementById('gridHero');
     const selected = document.getElementById('selectedHero');
     const item = document.createElement('div');
-    item.className = 'col-3';
+    item.className = 'col-1';
     const img = document.createElement('img');
     img.src = e.target.src;
     img.alt = e.target.alt;

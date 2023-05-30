@@ -1,63 +1,22 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <style>
-    .grid-container {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      padding: 10px;
-    }
-
-    .grid-item {
-      padding: 20px;
-      text-align: center;
-      border: 1px solid rgba(0, 0, 0, 0.8);
-    }
-
-    .hero-details {
-      display: none;
-    }
-  </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-
 <body>
-
-  <div class="grid-container" id="hero-grid">
-  </div>
-
   <script>
-    $(document).ready(function () {
-      $.get("https://api.allorigins.win/raw?url=http://legiongen.com/api/all/heros", function (data) {
-        let heros = data.heros;
-        for (let i = 0; i < heros.length; i++) {
-          let hero = heros[i];
-          let heroItem = `
-                  <div class="grid-item">
-                      <img src="http://legiongen.com/${hero.roe_image}" alt="${hero.roe_name}" style="width:60px;height:60px;" class="hero-image" onclick="toggleDetails(this)">
-                      <div class="hero-details">
-                          <p>Name: ${hero.roe_name}</p>
-                          <p>Role: ${hero.role}</p>
-                          <p>Placement: ${hero.placement}</p>
-                          <p>Optional Place: ${hero.optional_place}</p>
-                          <p>Tier: ${hero.tier}</p>
-                          <p>Note: ${hero.note}</p>
-                      </div>
-                  </div>
-              `;
-          $("#hero-grid").append(heroItem);
-        }
+    // load assets/heros.json using https://api.allorigins.win/raw?url=http://legiongen.com/api/all/heros
+    fetch('assets/raw.json')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.log(error);
       });
-    });
-
-
-    function toggleDetails(element) {
-      let detailsDiv = $(element).siblings('.hero-details');
-      detailsDiv.toggle();
-    }
   </script>
-
 </body>
-
 </html>
