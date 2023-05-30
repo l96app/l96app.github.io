@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Boh - Map Strategy tools</title>
-  <link rel="stylesheet" href="assets/bootstrap.min.css">
-  <script src="assets/d3.v5.min.js"></script>
-</head>
-
-<body>
-
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Boh - Map Strategy tools</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div id="navbarNavAltMarkup" class="navbar-collapse collapse show">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Boh Map Interface</a>
-        </div>
-      </div>
-    </nav>
-    <div id="homeInterface" class="container"></div>
-    <div id="bohMapInterface" class="container">
       <div class="row">
         <div class="conteiner col-lg-8 col-md-12">
           <div id="map" class="svg-container"></div>
@@ -47,12 +20,4 @@
           <p>Link (Not working, learning how to make work):</p>
           <textarea class="form-control" id="link" rows="3"></textarea>
         </div>
-      </div>`
-    </div>
-  </div>
-
-
-  <script src="assets/bohmap.js"></script>
-</body>
-
-</html>
+      </div>
