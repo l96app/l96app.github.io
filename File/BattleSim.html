@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Simulator</title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+<body><!-- Make a form with 3 collums to input data of player A and player B -->
+    <!-- Div with 3 identical size to be used as a table -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <span class="h5 col-5">Stats</span>
+                    <span class="h5 col-3">Player A</span>
+                    <span class="h5 col-3">Player B</span>
+                </div>
+                <div class="row">
+                    <input type="button" value="Start Battle" onclick="battle()"
+                        class="btn btn-primary col-4 offset-4 mb-3">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Player Name</span>
+                    </div>
+                    <input type="text" name="playerNameA" id="playerNameA" placeholder="Player Name A"
+                        class="form-control col-2" value="Player 1">
+                    <input type="text" name="playerNameB" id="playerNameB" placeholder="Player Name B"
+                        class="form-control col-2" value="Player 2">
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Troop Amount</span>
+                    </div>
+                    <input type="number" name="troopAmountA" id="troopAmountA" placeholder="Troop Amount A"
+                        class="form-control col-2" value=27500>
+                    <input type="number" name="troopAmountB" id="troopAmountB" placeholder="Troop Amount B"
+                        class="form-control col-2" value=27500>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Bonus Might</span>
+                    </div>
+                    <input type="number" name="bonusMightA" id="bonusMightA" placeholder="Bonus Might A"
+                        class="form-control col-2" value=440.07>
+                    <input type="number" name="bonusMightB" id="bonusMightB" placeholder="Bonus Might B"
+                        class="form-control col-2" value=450.37>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Bonus Res</span>
+                    </div>
+                    <input type="number" name="bonusResA" id="bonusResA" placeholder="Bonus Res A"
+                        class="form-control col-2" value=420.23>
+                    <input type="number" name="bonusResB" id="bonusResB" placeholder="Bonus Res B"
+                        class="form-control col-2" value=408.32>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Bonus TatMight</span>
+                    </div>
+                    <input type="number" name="bonusTatMightA" id="bonusTatMightA" placeholder="Bonus TatMight A"
+                        class="form-control col-2" value=134.5>
+                    <input type="number" name="bonusTatMightB" id="bonusTatMightB" placeholder="Bonus TatMight B"
+                        class="form-control col-2" value=135.5>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Bonus TatRes</span>
+                    </div>
+                    <input type="number" name="bonusTatResA" id="bonusTatResA" placeholder="Bonus TatRes A"
+                        class="form-control col-2" value=132>
+                    <input type="number" name="bonusTatResB" id="bonusTatResB" placeholder="Bonus TatRes B"
+                        class="form-control col-2" value=127.5>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Bonus Hp</span>
+                    </div>
+                    <input type="number" name="bonusHpA" id="bonusHpA" placeholder="Bonus Hp A"
+                        class="form-control col-2" value=210.89>
+                    <input type="number" name="bonusHpB" id="bonusHpB" placeholder="Bonus Hp B"
+                        class="form-control col-2" value=211.39>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Combat Speed</span>
+                    </div>
+                    <input type="number" name="combatSpeedA" id="combatSpeedA" placeholder="Combat Speed A"
+                        class="form-control col-2" value=419>
+                    <input type="number" name="combatSpeedB" id="combatSpeedB" placeholder="Combat Speed B"
+                        class="form-control col-2" value=419>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Bonus Dmg</span>
+                    </div>
+                    <input type="number" name="bonusDmgA" id="bonusDmgA" placeholder="Bonus Dmg A"
+                        class="form-control col-2" value=20.79>
+                    <input type="number" name="bonusDmgB" id="bonusDmgB" placeholder="Bonus Dmg B"
+                        class="form-control col-2" value=21.79>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Bonus DmgReduction</span>
+                    </div>
+                    <input type="number" name="bonusDmgReductionA" id="bonusDmgReductionA"
+                        placeholder="Bonus DmgReduction A" class="form-control col-2" value=0>
+                    <input type="number" name="bonusDmgReductionB" id="bonusDmgReductionB"
+                        placeholder="Bonus DmgReduction B" class="form-control col-2" value=0>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend col-5">
+                        <span class="input-group-text">Troop Type</span>
+                    </div>
+                    <input type="number" name="troopTypeA" id="troopTypeA" placeholder="Troop Type A"
+                        class="form-control col-2" value=1>
+                    <input type="number" name="troopTypeB" id="troopTypeB" placeholder="Troop Type B"
+                        class="form-control col-2" value=1>
+                </div>
+                <div class="container hidden">
+                    <div class="input-group">
+                        <div class="input-group-prepend col-5">
+                            <span class="input-group-text">Troop Might</span>
+                        </div>
+                        <input type="number" name="troopMightA" id="troopMightA" placeholder="Troop Might A"
+                            class="form-control col-2" value=87>
+                        <input type="number" name="troopMightB" id="troopMightB" placeholder="Troop Might B"
+                            class="form-control col-2" value=87>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend col-5">
+                            <span class="input-group-text">Troop Res</span>
+                        </div>
+                        <input type="number" name="troopResA" id="troopResA" placeholder="Troop Res A"
+                            class="form-control col-2" value=49>
+                        <input type="number" name="troopResB" id="troopResB" placeholder="Troop Res B"
+                            class="form-control col-2" value=49>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend col-5">
+                            <span class="input-group-text">Troop Health</span>
+                        </div>
+                        <input type="number" name="troopHealthA" id="troopHealthA" placeholder="Troop Health A"
+                            class="form-control col-2" value=16>
+                        <input type="number" name="troopHealthB" id="troopHealthB" placeholder="Troop Health B"
+                            class="form-control col-2" value=16>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend col-5">
+                            <span class="input-group-text">Troop Power</span>
+                        </div>
+                        <input type="number" name="troopPowerA" id="troopPowerA" placeholder="Troop Power A"
+                            class="form-control col-2" value=7>
+                        <input type="number" name="troopPowerB" id="troopPowerB" placeholder="Troop Power B"
+                            class="form-control col-2" value=7>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h2>Battle Log</h2>
+                <p id="battlelog"></p>
+            </div>
+            <div class="col">
+                <h2>Battle Log 2</h2>
+                <div class="container">
+                    <div id="results" class="row">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h4>Player A</h4>
+                            <p id="playerStatA"></p>
+                        </div>
+                        <div class="col">
+                            <h4>Player B</h4>
+                            <p id="playerStatB"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function battle() {
+            // get input values
+            var playerNameA = document.getElementById("playerNameA").value;
+            var playerNameB = document.getElementById("playerNameB").value;
+            var troopAmountA = document.getElementById("troopAmountA").value;
+            var troopAmountB = document.getElementById("troopAmountB").value;
+            var bonusMightA = document.getElementById("bonusMightA").value;
+            var bonusMightB = document.getElementById("bonusMightB").value;
+            var bonusResA = document.getElementById("bonusResA").value;
+            var bonusResB = document.getElementById("bonusResB").value;
+            var bonusTatMightA = document.getElementById("bonusTatMightA").value;
+            var bonusTatMightB = document.getElementById("bonusTatMightB").value;
+            var bonusTatResA = document.getElementById("bonusTatResA").value;
+            var bonusTatResB = document.getElementById("bonusTatResB").value;
+            var bonusHpA = document.getElementById("bonusHpA").value;
+            var bonusHpB = document.getElementById("bonusHpB").value;
+            var bonusDmgA = document.getElementById("bonusDmgA").value;
+            var bonusDmgB = document.getElementById("bonusDmgB").value;
+            var bonusDmgReductionA = document.getElementById("bonusDmgReductionA").value;
+            var bonusDmgReductionB = document.getElementById("bonusDmgReductionB").value;
+            var troopTypeA = document.getElementById("troopTypeA").value;
+            var troopTypeB = document.getElementById("troopTypeB").value;
+            var troopMightA = document.getElementById("troopMightA").value;
+            var troopMightB = document.getElementById("troopMightB").value;
+            var troopResA = document.getElementById("troopResA").value;
+            var troopResB = document.getElementById("troopResB").value;
+            var troopHealthA = document.getElementById("troopHealthA").value;
+            var troopHealthB = document.getElementById("troopHealthB").value;
+            var troopPowerA = document.getElementById("troopPowerA").value;
+            var troopPowerB = document.getElementById("troopPowerB").value;
+
+            // perform calculations
+            var mightA = troopMightA * (1 + bonusMightA / 100);
+            var mightB = troopMightB * (1 + bonusMightB / 100);
+            var resA = troopResA * (1 + bonusResA / 100);
+            var resB = troopResB * (1 + bonusResB / 100);
+            var tatMightA = troopMightA * (1 + bonusTatMightA / 100);
+            var tatMightB = troopMightB * (1 + bonusTatMightB / 100);
+            var tatResA = troopResA * (1 + bonusTatResA / 100);
+            var tatResB = troopResB * (1 + bonusTatResB / 100);
+            var hpA = troopHealthA * (1 + bonusHpA / 100);
+            var hpB = troopHealthB * (1 + bonusHpB / 100);
+            var coefA = 1; //Math.sqrt(20000 / troopAmountA);
+            var coefB = 1; // Math.sqrt(20000 / troopAmountB);
+            var dmgA = bonusDmgA / 100;
+            var dmgB = bonusDmgB / 100;
+            var dmgReductionA = bonusDmgReductionA / 100;
+            var dmgReductionB = bonusDmgReductionB / 100;
+            var troopA = troopAmountA;
+            var troopB = troopAmountB;
+            var tTypeA = troopTypeA;
+            var tTypeB = troopTypeB;
+
+            document.getElementById('playerStatA').innerHTML = "";
+            document.getElementById('playerStatB').innerHTML = "";
+            document.getElementById('results').innerHTML = "";
+            document.getElementById('battlelog').innerHTML = "";
+
+            document.getElementById('playerStatA').innerHTML += playerNameA + '<br>';
+            document.getElementById('playerStatA').innerHTML += "Amount:" + troopAmountA + " Might:" + troopMightA + " Res:" + troopResA + " Health:" + troopHealthA + " Power:" + troopPowerA + '<br>';
+            document.getElementById('playerStatA').innerHTML += "Bonus <br> Might:" + Math.round(bonusMightA) + " Res:" + Math.round(bonusResA) + " Tat Might:" + Math.round(bonusTatMightA) + " Tat Res:" + Math.round(bonusTatResA) + " Hp:" + Math.round(bonusHpA) + " Dmg:" + Math.round(bonusDmgA) + " Dmg Reduction:" + Math.round(bonusDmgReductionA) + '<br>';
+            document.getElementById('playerStatA').innerHTML += "Real Stats <br> Might:" + Math.round(mightA) + " Res:" + Math.round(resA) + " Tat Might:" + Math.round(tatMightA) + " Tat Res:" + Math.round(tatResA) + " Hp:" + Math.round(hpA) + " Dmg:" + Math.round(dmgA) + " Dmg Reduction:" + Math.round(dmgReductionA) + '<br>';
+
+            document.getElementById('playerStatB').innerHTML += playerNameB + '<br>';
+            document.getElementById('playerStatB').innerHTML += "Amount:" + troopAmountB + "<br>  Might:" + troopMightB + "<br>  Res:" + troopResB + "<br>  Health:" + troopHealthB + "<br>  Power:" + troopPowerB + '<br>';
+            document.getElementById('playerStatB').innerHTML += "Bonus <br> Might:" + Math.round(bonusMightB) + " Res:" + Math.round(bonusResB) + " Tat Might:" + Math.round(bonusTatMightB) + " Tat Res:" + Math.round(bonusTatResB) + " Hp:" + Math.round(bonusHpB) + " Dmg:" + Math.round(bonusDmgB) + " Dmg Reduction:" + Math.round(bonusDmgReductionB) + '<br>';
+            document.getElementById('playerStatB').innerHTML += "Real Stats <br> Might:" + Math.round(mightB) + " Res:" + Math.round(resB) + " Tat Might:" + Math.round(tatMightB) + " Tat Res:" + Math.round(tatResB) + " Hp:" + Math.round(hpB) + " Dmg:" + Math.round(dmgB) + " Dmg Reduction:" + Math.round(dmgReductionB) + '<br>';
+
+            var totalKillsA = 0;
+            var totalKillsB = 0;
+
+            // Normal Damage = (attack)/SQRT(attack + defense) * TroopTypeCoefficient * 1/(LoadedHP) * (1 + Damage %)
+            // Attack = AttackingTroopCombatPower * AttackingTroopCount * BaseTroopMight * (1 + AttributeMight %) * (1 + CounteringMight %)
+            // Defense = DefendingTroopCombatPower * DefendingTroopCount * BaseTroopResistance * (1 + AttributeResistance %) * (1 + CounteringResistance %)
+            // LoadedHP = BaseHP * (1 + AttributeHP %)
+            // Currently I add Tactical Might % to Attribute Might % for skill attack calculations, but I think I need to change it to a separate multiplier like Countering Might.
+
+            for (let i = 1; i < 8; i++) {
+                document.getElementById('battlelog').innerHTML += 'Round ' + i + '<br>';
+                //var killsA = Math.round(troopAmountA * ((mightA * (1 + dmgA) )/ tatResB / hpB * coefA));
+                var atackA = (troopAmountA * troopPowerA * mightA);
+                var atackB = (troopAmountB * troopPowerB * mightB) * (1 + dmgB);
+                var defA = (troopAmountA * troopPowerA * resA) * (1 + dmgReductionA);
+                var defB = (troopAmountB * troopPowerB * resB) * (1 + dmgReductionB);
+                var killsA = Math.round((atackA / Math.sqrt(atackA + defB) )* coefA * 1/hpB  * (1 + dmgA));
+                document.getElementById('battlelog').innerHTML += playerNameA + ' atacks ' + playerNameB + ' and kills ' + killsA + '<br>';
+                troopAmountB -= killsA;
+                totalKillsA += killsA;
+                var killsB = Math.round(troopAmountB * mightB * (1 + dmgB) / tatResA / hpA * coefB);
+                document.getElementById('battlelog').innerHTML += playerNameB + ' atacks ' + playerNameA + ' and kills ' + killsB + '<br>';
+                document.getElementById('battlelog').innerHTML += '<br>';
+                troopAmountA -= killsB;
+                totalKillsB += killsB;
+                console.log(troopAmountA + ',' + mightA + ',' + resA + ',' + hpA + ',' + dmgA + ',' + troopAmountB + ',' + mightB + ',' + resB + ',' + hpB + ',' + dmgB);
+                if (troopAmountA <= 0 || troopAmountB <= 0) {
+                    break;
+                }
+            };
+            document.getElementById('results').innerHTML += playerNameA + ' killed ' + totalKillsA + ' troops<br>';
+            document.getElementById('results').innerHTML += playerNameB + ' killed ' + totalKillsB + ' troops<br>';
+
+
+
+
+
+
+            // display results
+
+        }
+    </script>
+</body>
+
+</html>

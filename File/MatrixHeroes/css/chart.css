@@ -1,0 +1,143 @@
+.matrix {
+  position: relative;
+  margin: 30px;
+  left: 70px;
+  top: 40px;
+  background-image: linear-gradient(#e4e4e4 1px, transparent 1px), 
+    linear-gradient(90deg, #e4e4e4 1px, transparent 1px); 
+}
+
+.axis-level {
+  position: absolute;
+  font-size: 22px;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  margin: 0 auto; }
+  .axis-level.y-axis-level {
+    left: 0px;
+    z-index: 2;
+    opacity: 0.3;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    height: 100%; }
+  .axis-level.x-axis-level {
+    top: 0px;
+    left: 0px;
+    opacity: 0.3;
+    width: 100%; }
+
+.main-axis {
+  background: #bbbbbb;
+  display: block;
+  z-index: 5; }
+
+.x-axis {
+  width: 100%;
+  height: 1px; }
+
+.y-axis {
+  width: 1px;
+  height: 100%; }
+
+.value-pocket {
+  position: absolute; }
+  .value-pocket:after {
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #e4e4e4;
+    left: calc(50% - 4px);
+    bottom: 12px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1; }
+  .value-pocket ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center; }
+    .value-pocket ul li {
+      height: 36px;
+      width: 36px;
+      display: inline-block;
+      margin-left: -10px;
+      align-items: center; }
+      .value-pocket ul li .more {
+        background: #d2a7a7;
+        height: 32px;
+        width: 32px;
+        color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        line-height: 32px;
+        display: block;
+        text-align: center;
+        margin: 4px 0; }
+        .value-pocket ul li .more:hover {
+          background: #c18585; }
+      .value-pocket ul li:hover {
+        z-index: 4;
+        transform: scale(1.5);
+        cursor: pointer; }
+      .value-pocket ul li:first-child {
+        margin-left: 0; }
+      .value-pocket ul li img {
+        max-width: 100%;
+        border-radius: 50%;
+        border: 2px solid white;
+        height: auto;
+        box-shadow: 0 1px 6px #b3b3b3; }
+
+.axis-points {
+  display: flex;
+  position: relative;
+  z-index: 10; }
+  .axis-points.x-axis-points {
+    flex-direction: row;
+    margin-top: calc(-100% - 60px);
+    margin-left: 0%;
+    width: 100%; }
+  .axis-points.y-axis-points {
+    flex-direction: column-reverse;
+    left: -80px;
+    height: 100%;
+    position: absolute;
+    top: 60px; }
+    .axis-points.y-axis-points .axis-point-level {
+      align-items: center; }
+      .axis-points.y-axis-points .axis-point-level span {
+        margin-left: 5px; }
+  .axis-points .axis-point-level {
+    text-align: center; }
+    .axis-points .axis-point-level:hover {
+      z-index: 4;
+      transform: scale(1.5);
+      cursor: pointer; }
+    .axis-points .axis-point-level  img {
+      max-width: 100%;
+      border-radius: 50%;
+      border: 2px solid white;
+      height: auto;
+      box-shadow: 0 1px 6px #b3b3b3; }
+    .axis-points .axis-point-level span {
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      font-size: 12px;
+      display: inline-block;
+      text-align: center;
+      line-height: 12px;
+      color: white; }
+    .axis-points .axis-point-level p {
+      margin: 0;
+      font-size: 10px;
+      line-height: 10px;
+      width: 78px;
+      background: white;
+      color: gray; }
+
+/*# sourceMappingURL=chart.css.map */

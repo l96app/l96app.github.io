@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Boh - Map Strategy</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="assets/bootstrap.min.css">
+</head>
+<div class="row">
+  <div class="conteiner col-lg-8 col-md-12">
+    <div id="map" class="svg-container"></div>
+  </div>
+  <div class="conteiner col-lg-4 col-md-12">
+    <div class="row">
+      <button class="btn btn-outline-primary col" onclick="updateBlue()">Blue Exemple</button>
+      <button class="btn btn-outline-danger col" onclick="updateRed()">Red Exemple</button>
+      <button class="btn btn-outline-dark col" onclick="updateClear()">Reset</button>
+    </div>
+    <p>Castles [x : y : id : tips/instruction]:</p>
+    <textarea class="form-control" id="castlesAvailables" rows="3"></textarea>
+    <p>Sentry towers [x : y : id]:</p>
+    <textarea class="form-control" id="stPath" rows="3"></textarea>
+    <p>Advanced Msg [x : y : width : height : color : title : tag : information):</p>
+    <textarea class="form-control" id="mapZones" rows="3"></textarea>
+    <button class="btn btn-primary col-9 offset-1" onclick="copyLink()">Copy Link</button>
+
+    <p>Link (Not working, learning how to make work):</p>
+    <textarea class="form-control" id="link" rows="3"></textarea>
+  </div>
+</div>
+
+<script src="assets/bohmap.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Combo Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    input[type=text] {
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h1>Combo Table</h1>
+  
+  <input type="text" id="filterInput" placeholder="Filter combos...">
+  
+  <table id="comboTable">
+    <thead>
+      <tr>
+        <th>Combo</th>
+        <th>Row 2</th>
+        <th>Row 3</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  
+  <script>
+    // Fetch data from the API endpoint
+    fetch('https://legiongen.com/public/api/combos/all')
+      .then(response => response.json())
+      .then(data => {
+        const comboTable = document.getElementById('comboTable');
+        const comboData = data.combos;
+        const comboBody = comboTable.querySelector('tbody');
+        
+        // Populate the table with combo data
+        comboData.forEach(combo => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>
+                <div class='col-md-3 col-sm-12'><img src='http://legiongen.com/${combo.FrontHero.roe_image}' width='50'/>
+                <img src='http://legiongen.com/${combo.MiddleHero.roe_image}' width='50'/>
+                <img src='http://legiongen.com/${combo.BackHero.roe_image}' width='50'/></div>
+                </td>
+            <td>${combo.type}</td>
+            <td>${combo.value}</td>
+          `;
+          comboBody.appendChild(row);
+        });
+        
+        // Filter the table when the user types in the input field
+        const filterInput = document.getElementById('filterInput');
+        filterInput.addEventListener('keyup', () => {
+          const filterValue = filterInput.value.toLowerCase();
+          comboData.forEach(combo => {
+            const row = comboBody.querySelector(`tr[data-name="${combo.name}"]`);
+            if (row) {
+              if (combo.name.toLowerCase().indexOf(filterValue) > -1) {
+                row.style.display = '';
+              } else {
+                row.style.display = 'none';
+              }
+            }
+          });
+        });
+      })
+      .catch(error => console.error(error));
+  </script>
+</body>
+</html>

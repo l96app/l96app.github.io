@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Héroes</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 4.5rem;
+    }
+
+    .hero {
+      border: 2px solid green;
+      cursor: pointer;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 3px;
+      /* Espacio entre las filas */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      margin: auto;
+
+    }
+
+    .hero+.hero {
+      margin-left: 3px;
+      /* Espacio entre las columnas */
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 128, 0, 0.3);
+      /* verde con 30% de opacidad */
+      transition: 0.3s;
+      /* suaviza la transición de color */
+      opacity: 0.1;
+    }
+
+    .hero.deselected {
+      border-color: red;
+    }
+
+    .hero.deselected .overlay {
+      background: rgba(255, 0, 0, 0.3);
+      opacity: 0.4;
+    }
+
+    .hero.selected {
+      border-color: green;
+    }
+
+    .hero.selected .overlay {
+      background: rgba(0, 128, 0, 0.3);
+    }
+
+    .selected-ids,
+    .not-selected-ids {
+      margin-top: 3px;
+    }
+
+    .combo-container {
+      margin-top: 20px;
+    }
+
+    .combo {
+      display: flex;
+      align-items: center;
+    }
+
+    .combo img {
+      width: 50px;
+      height: 50px;
+      margin-right: 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Héroes</a>
+  </nav>
+
+  <main role="main" class="container">
+    <div class='row'>
+      <div class="container w-25">
+        <h1>Héroes</h1>
+        <p>Seleccioná los héroes que quieras para ver los combos que pueden hacer.</p>
+        <div class="row justify-content-center" id="heroes-container">
+        </div>
+
+        <div class="selected-ids">
+          <h4>IDs Seleccionados:</h4>
+          <p></p>
+        </div>
+
+        <div class="not-selected-ids">
+          <h4>IDs No Seleccionados:</h4>
+          <p></p>
+        </div>
+
+        <div>
+          <p>Conseguí información</p>
+        </div>
+      </div>
+
+      <div class="combo-container w-50" id="combos-container">
+        <!-- Combos se agregarán aquí dinámicamente -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer mt-auto py-3 bg-dark">
+    <div class="container">
+      <span class="text-muted">Página de Héroes</span>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="herofilter.js"></script>
+</body>
+
+</html>

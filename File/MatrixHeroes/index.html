@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dynamic Matrix Chart Plugin Demo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: 0.3s all;
+        }
+
+        body {
+            font-family: 'Roboto';
+            background-color: #fafafa;
+        }
+    </style>
+    <link rel="stylesheet" href="css/chart.css">
+    <link rel="stylesheet" href="css/pepal_performance_icon.css">
+</head>
+
+<body>
+    <div id="jquery-script-menu">
+        <h1>Dynamic Hero Matrix</h1>
+        <div id="chart">
+        </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="js/jquery.matrixchart.js"></script>
+
+
+
+<script type="text/javascript">
+    var HeroNames = [
+        "Rough Rider",
+        "Heaven’s Justice",
+        "Orochi",
+        "Hurricane",
+        "North’s Rage",
+        "Dual Blades",
+        "Yamaraja",
+        "Heroine of Courage",
+        // "El Zorro",
+        // "Demon Spear",
+        // "Rogue",
+        // "The Judge (S1)",
+        // "IronHand (S1)",
+        // "Chungmugong (S1)",
+        // "Bulwark (S1)",
+        // "LionHeart (S1)",
+        // "Ebony Knight (S1)",
+        // "The Volunteer (S1)",
+        // "The Pacer (S1)",
+        // "The Cincinnatus (S1)",
+        // "Jade Rakshasa(S2)",
+        // "WitchHunter (S2)",
+        // "The Immortal (S2)",
+        // "Peace Bringer (S2)",
+        // "Inquisitor (S2)",
+        // "Beast Queen (S2)",
+        // "Bleeding Steel (S3)",
+        // "Rozen Blade (S3)",
+        // "Sky Breaker (S3)",
+        // "WarLord (S3)",
+        // "Roku Boshuten (S3)",
+        // "Living Saint (S3)",
+        // "Desert Storm (S4)",
+        // "Soaring Hawk (S4)",
+        // "The Brave (S4)",
+        // "Jade Eagle(S4)",
+        // "Immortal Guardian (S4)",
+        // "Divine Arrow (S4)",
+        // "Cicero (SX)",
+        // "Elk (SX)",
+        // "Dragon’s Avatar (SX)",
+        // "Sakura Blossum(SX)",
+        // "Hunk (SX)",
+        // "Wind Walker (SX)",
+        // "The Tarantula (SX)",
+        // "Dach Tengri (SX)",
+        // "The Avalanche (SX)",
+        // "Army Breaker (SX)",
+        // "The Defender (SX)",
+        // "Spectral Reaper (SX)",
+        // "The Lawman (SX)",
+        // "The Valkyrie (SX)",
+        // "Son Of Ragnar (SX)",
+        // "Skanda (SX)",
+        // "The Liberator (SX)",
+        // "The Ashen Veredict (SX)",
+        // "The Warden (SX)",
+        // "The Warhammer (SX)",
+        // " The Eidolon (SX)",
+        // "Scarlet Reaver (SX)",
+        // "Prophet (SX)",
+        // "Rainforest Ranger (SX)",
+        // "Hellfire (SX)",
+        // "Lust Angel  (SX)",
+        // "Scorpion(SX)",
+        // "Dawn(SX)",
+        // "Cyclone(SX)",
+        // "Flare(SX)",
+
+    ]
+
+    var MatrixTest = [
+        {
+            "HId": 1,
+            "name": "Rough Rider",
+            "image": "img/H1.jpg",
+            "season": "S0",
+            "type": "Any",
+            "pocketAxisValue": { "x": 1, "y": 1 }
+        },
+        {
+            "HId": 2,
+            "name": "Heaven’s Justice",
+            "image": "img/H2.jpg",
+            "season": "S0",
+            "type": "Any",
+            "pocketAxisValue": { "x": 2, "y": 2 }
+        },
+        {
+            "HId": 3,
+            "name": "Orochi",
+            "image": "img/H3.jpg",
+            "season": "S0",
+            "type": "Any",
+            "pocketAxisValue": { "x": 3, "y": 3 }
+        },
+        {
+            "HId": 4,
+            "name": "Hurricane",
+            "image": "img/H4.jpg",
+            "season": "S0",
+            "type": "Any",
+            "pocketAxisValue": { "x": 4, "y": 4 }
+        },
+        {
+            "HId": 5,
+            "name": "North's Rage",
+            "image": "img/H5.jpg",
+            "season": "S0",
+            "type": "Any",
+            "pocketAxisValue": { "x": 5, "y": 5 }
+        },
+        {
+            "HId": 6,
+            "name": "Dual Blades",
+            "image": "img/H6.jpg",
+            "season": "S0",
+            "type": "Any",
+            "pocketAxisValue": { "x": 6, "y": 6 }
+        },
+        {
+            "HId": 7,
+            "name": "Yamaraja",
+            "image": "img/H7.jpg",
+            "season": "S0",
+            "type": "Any",
+            "pocketAxisValue": { "x": 7, "y": 7 }
+        },
+        {
+            "EmpId": 8,
+            "name": "Heroine of Courage",
+            "image": "img/H8.jpg",
+            "season": "S0",
+            "type": "Any",
+            "pocketAxisValue": { "x": 8, "y": 8 }
+        },
+        {
+            "EmpId": 9,
+            "name": "Test",
+            "image": "img/H4.jpg",
+            "pocketAxisValue": { "x": 3, "y": 8 }
+        },
+        {
+            "EmpId": 10,
+            "name": "Test",
+            "image": "img/H4.jpg",
+            "pocketAxisValue": { "x": 3, "y": 8 }
+        },
+        {
+            "EmpId": 11,
+            "name": "Test", // hero 3 on same slot appear as 3, no pic, need fix on css
+            "image": "img/H2.jpg",
+            "pocketAxisValue": { "x": 3, "y": 8 }
+        }
+    ]
+
+    // this var probably need be changed by filter
+    var HeroCount = 8
+
+    // need to turn this next function on heronames controller
+    for (var i = 1; i <= HeroCount; i++) {
+        MatrixTest[i][0]
+    }
+    // Next steop must be create filter
+    // then improve interface to appear 4 combos max and somekind of guide line
+    // need learn something like "onclick appear a popup" for heroes details when click the image
+
+    $("#chart").matrixchart({
+        height: HeroCount * 80,
+        width: HeroCount * 80,
+        noOfxLevels: HeroCount,
+        noOfyLevels: HeroCount,
+        xlabels: HeroNames,
+        ylabels: HeroNames,
+        xAxisName: "Middle  Row",
+        yAxisName: "Front Row",
+        matrixDatas: MatrixTest
+    });
+</script>
+
+</html>
